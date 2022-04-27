@@ -222,7 +222,7 @@ $14 ==&gt; Cos(x)
 <pre><code>jshell&gt; eval(&quot;JavaForm(Sin(x)^2,Prefix-&gt;True)&quot;)
 $15 ==&gt; F.Sqr(F.Sin(F.x))
 </code></pre>
-<p>Plot a 3D function. This command will open a browser window which should display the plot.</p>
+<p>Plot a 3D function. This command will open a browser window which should display the plot and a button to refine the JavaScript output on <a href="https://jsfiddle.net/">JSFiddle</a></p>
 <pre><code>jshell&gt; F.show(eval(&quot;Plot3D(Sin(x*y), {x,0, 5}, {y, 0, 5}, ColorFunction-&gt;\&quot;Rainbow\&quot;)&quot;))
 </code></pre>
 <p>If you're finished exit jshell with the <code>/exit</code> jshell command:</p>
