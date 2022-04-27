@@ -3,7 +3,7 @@
 
     <head>
         <meta charset="utf-8">
-        <title>Appassembler Maven Plugin</title>
+        <title>Symbolic math scripting with JShell</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Open source Java and Computer Algebra blog">
         <meta name="author" content="Axel Kramer">
@@ -12,14 +12,14 @@
         
         <!--Facebook Card-->
 		<meta property="og:type" content="article" />
-		<meta property="og:title"  content="Appassembler Maven Plugin" />
+		<meta property="og:title"  content="Symbolic math scripting with JShell" />
 		<meta property="og:description" content="Open source Java and Computer Algebra blog"/>
 		<meta property="og:image" content="https://github.com/axkr/axkr.github.io/img/yosemite.jpg" />
         
         <!--Twitter card -->
         
         <meta name="twitter:card" content="summary_large_image">
-		<meta name="twitter:title" content="Appassembler Maven Plugin">
+		<meta name="twitter:title" content="Symbolic math scripting with JShell">
 		<meta name="twitter:creator" content="@axelclk">
 		<meta name="twitter:description" content="Open source Java and Computer Algebra blog">
 		<meta name="twitter:image" content="https://github.com/axkr/axkr.github.io/img/yosemite.jpg">
@@ -83,7 +83,7 @@
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                         <div class="post-heading">
-                            <h1>Appassembler Maven Plugin</h1>
+                            <h1>Symbolic math scripting with JShell</h1>
                             
                             <span class="meta">Posted by <b>Axel Kramer</b> on 
                                 April 27, 2022
@@ -91,7 +91,7 @@
                                 <span> Tags: 
                                     <span> 
                                         <a href="../../tags/blog.html" class="" >blog</a></span><span> 
-                                        <a href="../../tags/maven.html" class="" >maven</a></span> 
+                                        <a href="../../tags/jshell.html" class="" >jshell</a></span> 
                                 </span>
                             </span>
                         </div>
@@ -104,17 +104,128 @@
         <article>
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><p>The <code>appassembler-maven-plugin</code> Maven plugin can be used to create the <a href="https://github.com/axkr/symja_android_library/wiki/Installation">Symja apps</a>.</p>
-<p>Assuming the command will be run from the Maven parent <code>pom.xml</code> file location, it will create a distribution package for the web-interface and the command line apps:</p>
-<pre><code>mvn -pl matheclipse-io clean package appassembler:assemble
+                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><h2>Symbolic math scripting with JShell</h2>
+<p><a href="https://docs.oracle.com/en/java/javase/11/jshell/">JShell</a> is a Read-Evaluate-Print-Loop (REPL), a command line tool that allows you to enter Java statements (simple statements, compound statements, or even full methods and classes), evaluate them, and print the result. We'll go through an example that will show you how to use JShell to explore the <a href="https://github.com/axkr/symja_android_library">Symja computer algebra library</a>.</p>
+<h3>Installation</h3>
+<p>Download the latest <a href="https://github.com/axkr/symja_android_library/releases">Symja v2.0.0-apps release</a> and unzip the files for example in  a sub-directory named  <code>/symja</code>. Install the files <a href="https://github.com/axkr/symja_android_library/blob/master/symja_android_library/start-symja.jsh">start-symja.jsh</a> and <a href="https://github.com/axkr/symja_android_library/blob/master/symja_android_library/symja-jshell.bat">symja-jshell.bat</a> also in this directory.</p>
+<p>You can run the <a href="https://github.com/axkr/symja_android_library/blob/master/symja_android_library/symja-jshell.bat">symja-jshell.bat</a> batch file under Windows. Please adjust the <code>JAVA_HOME</code> path for your environment to a JDK installation greater equal than Java 11.</p>
+<pre><code>  SET &quot;JAVA_HOME=C:\Program Files\Java\jdk-11.0.12&quot;
+  &quot;%JAVA_HOME%\bin\jshell&quot; --class-path &quot;lib/*&quot; --startup start-symja.jsh
 </code></pre>
-<p>For Windows the following <code>*.bat</code> files will be generated:<br />
-<code>server.bat</code>, <code>mmaserver.bat</code>, <code>symja.bat</code> and <code>mma.bat</code></p>
-<p>You can run one of the following commands:<br />
-* <code>bin\server.bat -l -p 8080</code> to run <a href="https://github.com/axkr/symja_android_library/wiki/Symja-browser-usage">Symja as a web browser notebook</a><br />
-* <code>bin\mmaserver.bat -l -p 8080</code> to run <a href="https://github.com/axkr/symja_android_library/wiki/MMA-browser-usage">Symja as a web browser notebook in Mathematica syntax mode</a><br />
-* <code>bin\symja.bat</code> to run <a href="https://github.com/axkr/symja_android_library/wiki/Console-usage">Symja as a console app</a><br />
-* <code>bin\mma.bat</code> to run <a href="https://github.com/axkr/symja_android_library/wiki/MMA-console-usage">Symja as a console in Mathematica syntax mode</a></p>
+<p>By running the <code>symja-jshell.bat</code> file the <a href="https://github.com/axkr/symja_android_library/blob/master/symja_android_library/start-symja.jsh">start-symja.jsh</a> default JShell scripting file with some additional imports will be executed:</p>
+<pre><code>...
+import org.matheclipse.core.expression.*;
+import org.matheclipse.core.eval.*;
+import org.matheclipse.core.interfaces.*;
+import static org.matheclipse.core.expression.F.*;
+ 
+</code></pre>
+<ul>
+<li>With the static imports of the <a href="https://github.com/axkr/symja_android_library/blob/master/symja_android_library/matheclipse-core/src/main/java/org/matheclipse/core/expression/F.java">F.class</a> it's possible to use the formal symbols <code>a,b,c,...x,y,z</code> symbolically and to call functions like <a href="https://github.com/axkr/symja_android_library/blob/master/symja_android_library/doc/functions/Integrate.md">Integrate</a>, <a href="https://github.com/axkr/symja_android_library/blob/master/symja_android_library/doc/functions/D.md">D</a> or <a href="https://github.com/axkr/symja_android_library/blob/master/symja_android_library/doc/functions/FactorInteger.md">FactorInteger</a> and to omit the <code>F.</code> prefix.</li>
+<li>With the predefined <code>eval</code> method it's possible to evaluate a math string expression like for example <code>eval(&quot;D(Sin(x),x)&quot;)</code></li>
+</ul>
+<h3>Example shell interactions</h3>
+<p>After starting jshell you should see something like the following:</p>
+<pre><code>C:\symja&gt;symja-jshell
+|  Welcome to JShell -- Version 11.0.12
+|  For an introduction type: /help intro
+jshell&gt;
+</code></pre>
+<p>You can now input specific JShell commands or Java Symja API code (referred to as snippets). So let's start with a simple expression:</p>
+<pre><code>jshell&gt; eval(&quot;1+1&quot;)
+$1 ==&gt; 2
+</code></pre>
+<p>With this snippet you can evaluate a partial derivative:</p>
+<pre><code>jshell&gt; D.of(Sin(x),x)  
+$2 ==&gt; Cos(x)
+</code></pre>
+<p>Integration of <code>Sin(x)*Cos()</code>:</p>
+<pre><code>jshell&gt; Integrate.of(Times(Sin(x),Cos(x)),x)
+$3 ==&gt; -Cos(x)^2/2
+</code></pre>
+<p>Determine the factors of the integer <code>324</code> (use <code>ZZ</code> to define integers; <code>QQ</code> to define rational numbers and <code>CC</code> to define exact complex numbers):</p>
+<pre><code>jshell&gt; FactorInteger.of(ZZ(324))
+$4 ==&gt; {{2,2},{3,4}}
+</code></pre>
+<p>Print the Horner form of the expression <code>(x+y)^3</code>:</p>
+<pre><code>jshell&gt; HornerForm.of(Expand(Power(Plus(x,y),C3)))
+$5 ==&gt; x*(x*(x+3*y)+3*y^2)+y^3
+</code></pre>
+<p>Print the TeX form of the expression <code>Sum( f(n), {n, 1, m})</code>:</p>
+<pre><code>jshell&gt; TeXForm.of(Sum(unary(f,n),List(n,C1,m)))
+$6 ==&gt; \sum_{n = 1}^{m} {f(n)}
+</code></pre>
+<p>Print the internal rules used for the <code>ArcTan</code> function</p>
+<pre><code>jshell&gt; Definition.of(ArcTan)
+$7 ==&gt; Attributes(ArcTan)={Listable,NumericFunction}
+ArcTan(Sqrt(5-2*Sqrt(5)))=Pi/5
+...
+ArcTan(0)=0
+ArcTan(1,1)=Pi/4
+ArcTan(Infinity)=Pi/2
+...
+</code></pre>
+<p>Evaluate <code>ArcTan(1,1)</code></p>
+<pre><code>jshell&gt; ArcTan.of(C1,C1)
+$8 ==&gt; Pi/4
+</code></pre>
+<p>Define a symbolic variable <code>xx</code> and assign <code>x+y</code></p>
+<pre><code>jshell&gt; ISymbol xx=Dummy(&quot;xx&quot;)
+xx ==&gt; xx
+
+jshell&gt; Set.of(xx, Plus(x,y))  // assign x+y  
+$10 ==&gt; x+y
+
+jshell&gt; Definition.of(xx)
+$11 ==&gt; Attributes(xx)={}
+xx=x+y
+
+jshell&gt; eval(xx)
+$12 ==&gt; x+y
+</code></pre>
+<p>Print the documentation for the <code>Im</code> function:</p>
+<pre><code>jshell&gt; InputForm.of(usage(Im)) 
+$13 ==&gt;
+## Im
+
+Im(z)
+&gt; returns the imaginary component of the complex number `z`.
+
+### Examples
+&gt;&gt; Im(3+4I)
+4
+
+&gt;&gt; Im(0.5 + 2.3*I)
+2.3
+
+</code></pre>
+<p>When you enter snippets, use the <code>&lt;Tab&gt;</code> key to automatically complete the <code>F.</code> function name. If the function name can’t be determined from what was entered, then possible symbol and function names are provided.</p>
+<pre><code>jshell&gt; F.Arc&lt;TAB&gt;
+ArcCos      ArcCos(     ArcCosh     ArcCosh(    ArcCot      ArcCot(     ArcCoth     ArcCoth(    ArcCsc      ArcCsc(
+ArcCsch     ArcCsch(    ArcLength   ArcSec      ArcSec(     ArcSech     ArcSech(    ArcSin      ArcSin(     ArcSinh
+ArcSinh(    ArcTan      ArcTan(     ArcTanh     ArcTanh(
+</code></pre>
+<p>If you only want to see the predefined symbol names, use the <code>&lt;Tab&gt;</code> key to automatically complete the <code>S.</code> symbol name. If the symbol name can’t be determined from what was entered, then possible symbol names are provided.</p>
+<pre><code>jshell&gt; S.Int
+Integer                   IntegerDigits             IntegerExponent           IntegerLength
+IntegerName               IntegerPart               IntegerPartitions         IntegerQ
+Integers                  Integrate                 InterpolatingFunction     InterpolatingPolynomial
+Interpolation             InterquartileRange        Interrupt                 IntersectingQ
+Intersection              Interval                  IntervalIntersection      IntervalMemberQ
+IntervalUnion
+</code></pre>
+<p>Evaluate expression from Java string input:</p>
+<pre><code>jshell&gt; eval(&quot;D(Sin(x),x)&quot;)
+$14 ==&gt; Cos(x)
+</code></pre>
+<p>Convert string expressions into a Symja Java form:</p>
+<pre><code>jshell&gt; eval(&quot;JavaForm(Sin(x)^2,Prefix-&gt;True)&quot;)
+$15 ==&gt; F.Sqr(F.Sin(F.x))
+</code></pre>
+<p>If you're finished exit jshell with the <code>/exit</code> jshell command:</p>
+<pre><code>jshell&gt; /exit
+|  Goodbye 
+</code></pre>
 </div>
                 </div>
             </div>
@@ -126,8 +237,8 @@
                             <script>
                                 var disqus_shortname = "https-axkr-github-io";
                                 var disqus_config = function () {
-                                    this.page.url = "https:\/\/github.com\/axkr\/axkr.github.io\/blog\/2022\/AppassembleMavenPlugin.html";
-                                    this.page.identifier = "C:\\jbake-axkr\\content\\blog\\2022\\AppassembleMavenPlugin.md";
+                                    this.page.url = "https:\/\/github.com\/axkr\/axkr.github.io\/blog\/2022\/JShellUsageWithSymja.html";
+                                    this.page.identifier = "C:\\jbake-axkr\\content\\blog\\2022\\JShellUsageWithSymja.md";
                                 };
                                 (function () { // DON'T EDIT BELOW THIS LINE
                                     var d = document, s = d.createElement('script');
