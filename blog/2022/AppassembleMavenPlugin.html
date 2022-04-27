@@ -1,10 +1,9 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 
     <head>
         <meta charset="utf-8">
-        <title>Symja Blog</title>
+        <title>Appassembler Maven Plugin</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Open source Java and Computer Algebra blog">
         <meta name="author" content="Axel Kramer">
@@ -13,27 +12,27 @@
         
         <!--Facebook Card-->
 		<meta property="og:type" content="article" />
-		<meta property="og:title"  content="Symja Blog" />
+		<meta property="og:title"  content="Appassembler Maven Plugin" />
 		<meta property="og:description" content="Open source Java and Computer Algebra blog"/>
 		<meta property="og:image" content="http://localhost:8820//img/yosemite.jpg" />
         
         <!--Twitter card -->
         
         <meta name="twitter:card" content="summary_large_image">
-		<meta name="twitter:title" content="Symja Blog">
+		<meta name="twitter:title" content="Appassembler Maven Plugin">
 		<meta name="twitter:creator" content="@axelclk">
 		<meta name="twitter:description" content="Open source Java and Computer Algebra blog">
 		<meta name="twitter:image" content="http://localhost:8820//img/yosemite.jpg">
 		</th:if>
         <!-- Bootstrap Core CSS -->
-        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
         <!-- Theme CSS -->
-        <link href="css/coderay.css" rel="stylesheet">
-        <link href="css/asciidoctor.css" rel="stylesheet">
-        <link href="css/clean-blog.css" rel="stylesheet">
+        <link href="../../css/coderay.css" rel="stylesheet">
+        <link href="../../css/asciidoctor.css" rel="stylesheet">
+        <link href="../../css/clean-blog.css" rel="stylesheet">
         <!-- Custom Fonts -->
-        <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="../../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Lato:300&amp;text=Symja%20Blog'
            rel='stylesheet' type='text/css'>
@@ -45,12 +44,11 @@
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
 
-        <link rel="shortcut icon" href="favicon.ico"/>
+        <link rel="shortcut icon" href="../../favicon.ico"/>
     </head>
 
     <body>
 
-        <!-- Navigation -->
         <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
@@ -59,14 +57,14 @@
                         <span class="sr-only">Toggle navigation</span>
                         Menu <i class="fa fa-bars"></i>
                     </button>
-                    <a class="navbar-brand" href="index.html">Symja Blog</a>
+                    <a class="navbar-brand" href="../../index.html">Symja Blog</a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a href="about.html">About me</a>
+                            <a href="../../about.html">About me</a>
                         </li>
                         
                         
@@ -80,57 +78,64 @@
 
         <!-- Page Header -->
         <!-- Set your background image for this header on the line below. -->
-        <header class="intro-header" 
-                style="background-image: url(&#39;img/archive-cover.jpg&#39; ) ; background-color:#101010">
+        <header class="intro-header" style="background-image: url(&#39;../../img/index-cover.jpg&#39;) ; background-color:#101010">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                        <div class="site-heading">
-                            <h1>Symja Blog</h1>
-                            <hr class="small" />
-                            <span class="subheading">Archived Posts</span>
+                        <div class="post-heading">
+                            <h1>Appassembler Maven Plugin</h1>
+                            
+                            <span class="meta">Posted by <b>Axel Kramer</b> on 
+                                April 27, 2022
+                                </br>
+                                <span> Tags: 
+                                    <span> 
+                                        <a href="../../tags/blog.html" class="" >blog</a></span> 
+                                </span>
+                            </span>
                         </div>
                     </div>
                 </div>
             </div>
         </header>
 
-        <!-- Main Content -->
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-
-                    <div class="post-preview">
-
-                        
-                            <a>
-                                <hr/>
-                                <h2 class="post-title">April 2022</h2>
-                            </a>
-                            <a href="blog/2022/AppassembleMavenPlugin.html">
-                                <h3 class="post-subtitle">Appassembler Maven Plugin</h3>
-                                
-                            </a>
-                            
-                            
-                        
-                            <a>
-                                <hr/>
-                                <h2 class="post-title">April 2022</h2>
-                            </a>
-                            <a href="blog/2022/JBakeOnWindows.html">
-                                <h3 class="post-subtitle">Running JBake on Windows</h3>
-                                
-                            </a>
-                            
-                            
-                        
-                    </div>
-                    <hr/>
+        <!-- Post Content -->
+        <article>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><p>The <code>appassembler-maven-plugin</code> Maven plugin can be used to create the <a href="https://github.com/axkr/symja_android_library/wiki/Installation">Symja apps</a>.</p>
+<p>Assuming the command will be run from the Maven parent <code>pom.xml</code> file location, it will create a distribution package for the web-interface and the command line apps:</p>
+<pre><code>mvn -pl matheclipse-io clean package appassembler:assemble
+</code></pre>
+<p>For Windows the following <code>*.bat</code> files will be generated:<br />
+<code>server.bat</code>, <code>mmaserver.bat</code>, <code>symja.bat</code> and <code>mma.bat</code></p>
+<p>You can run one of the following commands:<br />
+* <code>bin\server.bat -l -p 8080</code> to run <a href="https://github.com/axkr/symja_android_library/wiki/Symja-browser-usage">Symja as a web browser notebook</a><br />
+* <code>bin\mmaserver.bat -l -p 8080</code> to run <a href="https://github.com/axkr/symja_android_library/wiki/MMA-browser-usage">Symja as a web browser notebook in Mathematica syntax mode</a><br />
+* <code>bin\symja.bat</code> to run <a href="https://github.com/axkr/symja_android_library/wiki/Console-usage">Symja as a console app</a><br />
+* <code>bin\mma.bat</code> to run <a href="https://github.com/axkr/symja_android_library/wiki/MMA-console-usage">Symja as a console in Mathematica syntax mode</a></p>
+</div>
                 </div>
             </div>
-        </div>
-
+        </article>
+        <hr/>
+        <div class="container"><div class="row"><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+                            <div id="disqus_thread"></div>
+                            <script>
+                                var disqus_shortname = "https-axkr-github-io";
+                                var disqus_config = function () {
+                                    this.page.url = "http:\/\/localhost:8820\/\/blog\/2022\/AppassembleMavenPlugin.html";
+                                    this.page.identifier = "C:\\jbake-axkr\\content\\blog\\2022\\AppassembleMavenPlugin.md";
+                                };
+                                (function () { // DON'T EDIT BELOW THIS LINE
+                                    var d = document, s = d.createElement('script');
+                                    s.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+                                    s.setAttribute('data-timestamp', +new Date());
+                                    (d.head || d.body).appendChild(s);
+                                })();
+                            </script>
+                        </div></div></div>
         <!-- Footer -->
         <footer>
             <div class="container">
@@ -138,7 +143,7 @@
                     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                         <ul class="list-inline text-center"> 
                             <li>
-                                <a href="feed.xml" title="Subscribe to RSS feed">
+                                <a href="../../feed.xml" title="Subscribe to RSS feed">
                                     <span class="fa-stack fa-lg">
                                         <i class="fa fa-circle fa-stack-2x"></i>
                                         <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
@@ -170,15 +175,16 @@
         </footer>
 
         <!-- jQuery -->
-        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="../../vendor/jquery/jquery.min.js"></script>
 
         <!-- Bootstrap Core JavaScript -->
-        <script src="vendor/bootstrap/js/bootstrap.min.js" ></script>
+        <script src="../../vendor/bootstrap/js/bootstrap.min.js" ></script>
 
         <!-- Theme JavaScript -->
-        <script src="js/clean-blog.min.js"></script>
+        <script src="../../js/clean-blog.min.js"></script>
 
         
+
     </body>
 
 </html>
