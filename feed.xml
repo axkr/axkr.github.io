@@ -2,19 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Symja Blog</title>
-    <link>https://github.com/axkr/axkr.github.io</link>
-    <atom:link href="https://github.com/axkr/axkr.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:8820/</link>
+    <atom:link href="http://localhost:8820//feed.xml" rel="self" type="application/rss+xml" />
     <description>Open source Java and Computer Algebra blog</description>
     <language>en-gb</language>
-    <pubDate>Wed, 27 Apr 2022 12:56:27 +0200</pubDate>
-    <lastBuildDate>Wed, 27 Apr 2022 12:56:27 +0200</lastBuildDate>
+    <pubDate>Wed, 27 Apr 2022 13:33:27 +0200</pubDate>
+    <lastBuildDate>Wed, 27 Apr 2022 13:33:27 +0200</lastBuildDate>
 
     <item>
       <title>Running JBake on Windows</title>
-      <link>https://github.com/axkr/axkr.github.io/blog/2022/JBakeOnWindows.html</link>
+      <link>http://localhost:8820//blog/2022/JBakeOnWindows.html</link>
       <pubDate>Wed, 27 Apr 2022 00:00:00 +0200</pubDate>
       <guid isPermaLink="false">blog/2022/JBakeOnWindows.html</guid>
-      <description><p>To start, let's download <a href="https://jbake.org/download.html">JBake</a> and generate a static site structure with</p></description>	  
+      <description><p>To start, let's download <a href="https://jbake.org/download.html">JBake</a> and install JBake in a directory <code>C:\jbake-axkr</code>.<br />
+Now open a Windows <code>cmd.exe</code> and switch to that folder with the command:</p></description>	  
     </item>
 
   </channel> 

@@ -14,7 +14,7 @@
 		<meta property="og:type" content="article" />
 		<meta property="og:title"  content="Running JBake on Windows" />
 		<meta property="og:description" content="Open source Java and Computer Algebra blog"/>
-		<meta property="og:image" content="https://github.com/axkr/axkr.github.io/img/yosemite.jpg" />
+		<meta property="og:image" content="http://localhost:8820//img/yosemite.jpg" />
         
         <!--Twitter card -->
         
@@ -22,7 +22,7 @@
 		<meta name="twitter:title" content="Running JBake on Windows">
 		<meta name="twitter:creator" content="@axelclk">
 		<meta name="twitter:description" content="Open source Java and Computer Algebra blog">
-		<meta name="twitter:image" content="https://github.com/axkr/axkr.github.io/img/yosemite.jpg">
+		<meta name="twitter:image" content="http://localhost:8820//img/yosemite.jpg">
 		</th:if>
         <!-- Bootstrap Core CSS -->
         <link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -103,18 +103,34 @@
         <article>
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><p>To start, let's download <a href="https://jbake.org/download.html">JBake</a> and generate a static site structure with</p>
-<pre><code>bin\jbake.bat -i
-
+                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><p>To start, let's download <a href="https://jbake.org/download.html">JBake</a> and install JBake in a directory <code>C:\jbake-axkr</code>.<br />
+Now open a Windows <code>cmd.exe</code> and switch to that folder with the command:</p>
+<pre><code>C:\&gt;cd C:\jbake-axkr
 </code></pre>
-<p>Let's generate the static content with:</p>
-<pre><code>bin\jbake.bat -b
-
+<p>You can generate a static site structure with the command</p>
+<pre><code>C:\jbake-axkr&gt;bin\jbake.bat -i
+</code></pre>
+<p>Let's generate the static content with the following command in the folder <code>C:\jbake-axkr\output\</code>:</p>
+<pre><code>C:\jbake-axkr&gt;bin\jbake.bat -b
 </code></pre>
 <p>Start the embedded server with the following command and open <a href="http://localhost:8820/">http://localhost:8820/</a> to control your changes.</p>
-<pre><code>bin\jbake.bat -s
-
+<pre><code>C:\jbake-axkr&gt;bin\jbake.bat -s
 </code></pre>
+<p>Create a new page for markdown editing with the <code>*.md</code> file extension, for example in the file</p>
+<pre><code>C:\jbake-axkr\jbake-axkr\content\blog\2022\JBakeOnWindows.md
+</code></pre>
+<p>and prepend the meta-data below as the first lines of the file.</p>
+<pre>
+title=Running JBake on Windows<br/>
+date=2022-04-27<br/>
+type=post<br/>
+tags=blog<br/>
+status=published<br/>
+~~~~~~<br/>
+</pre>
+<p>Edit the following lines with your blog content for example with the Eclipse Markdown editor and save the page.<br />
+Open <a href="http://localhost:8820/">http://localhost:8820/</a> again and preview your blog.<br />
+If the result is ready for publishing you can commit the content from the folder <code>C:\jbake-axkr\output\</code> for example as a <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages">Github page</a>.</p>
 </div>
                 </div>
             </div>
@@ -126,7 +142,7 @@
                             <script>
                                 var disqus_shortname = "https-axkr-github-io";
                                 var disqus_config = function () {
-                                    this.page.url = "https:\/\/github.com\/axkr\/axkr.github.io\/blog\/2022\/JBakeOnWindows.html";
+                                    this.page.url = "http:\/\/localhost:8820\/\/blog\/2022\/JBakeOnWindows.html";
                                     this.page.identifier = "C:\\jbake-axkr\\content\\blog\\2022\\JBakeOnWindows.md";
                                 };
                                 (function () { // DON'T EDIT BELOW THIS LINE
