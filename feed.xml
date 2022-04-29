@@ -6,10 +6,16 @@
     <atom:link href="https://github.com/axkr/axkr.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>Open source Java and Computer Algebra blog</description>
     <language>en-gb</language>
-    <pubDate>Wed, 27 Apr 2022 22:05:22 +0200</pubDate>
-    <lastBuildDate>Wed, 27 Apr 2022 22:05:22 +0200</lastBuildDate>
+    <pubDate>Fri, 29 Apr 2022 12:42:26 +0200</pubDate>
+    <lastBuildDate>Fri, 29 Apr 2022 12:42:26 +0200</lastBuildDate>
 
     <item>
+      <title>java_codegen - a simple preprocessor tool for Java source code.</title>
+      <link>https://github.com/axkr/axkr.github.io/blog/2022/JavaCodegen.html</link>
+      <pubDate>Fri, 29 Apr 2022 00:00:00 +0200</pubDate>
+      <guid isPermaLink="false">blog/2022/JavaCodegen.html</guid>
+      <description><p>The <a href="https://github.com/axkr/java_codegen">axkr/java_codegen</a> Github project contains a simple preprocessor tool to expand ordinary strings into Java source code.</p></description>	  
+    </item><item>
       <title>Appassembler Maven Plugin</title>
       <link>https://github.com/axkr/axkr.github.io/blog/2022/AppassembleMavenPlugin.html</link>
       <pubDate>Wed, 27 Apr 2022 00:00:00 +0200</pubDate>
