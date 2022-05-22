@@ -3,7 +3,7 @@
 
     <head>
         <meta charset="utf-8">
-        <title>Running JBake on Windows</title>
+        <title>Using Github Codespaces</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Open source Java and Computer Algebra blog">
         <meta name="author" content="Axel Kramer">
@@ -12,14 +12,14 @@
         
         <!--Facebook Card-->
 		<meta property="og:type" content="article" />
-		<meta property="og:title"  content="Running JBake on Windows" />
+		<meta property="og:title"  content="Using Github Codespaces" />
 		<meta property="og:description" content="Open source Java and Computer Algebra blog"/>
 		<meta property="og:image" content="http://localhost:8820//img/yosemite.jpg" />
         
         <!--Twitter card -->
         
         <meta name="twitter:card" content="summary_large_image">
-		<meta name="twitter:title" content="Running JBake on Windows">
+		<meta name="twitter:title" content="Using Github Codespaces">
 		<meta name="twitter:creator" content="@axelclk">
 		<meta name="twitter:description" content="Open source Java and Computer Algebra blog">
 		<meta name="twitter:image" content="http://localhost:8820//img/yosemite.jpg">
@@ -83,15 +83,15 @@
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                         <div class="post-heading">
-                            <h1>Running JBake on Windows</h1>
+                            <h1>Using Github Codespaces</h1>
                             
                             <span class="meta">Posted by <b>Axel Kramer</b> on 
-                                April 27, 2022
+                                May 22, 2022
                                 </br>
                                 <span> Tags: 
                                     <span> 
                                         <a href="../../tags/blog.html" class="" >blog</a></span><span> 
-                                        <a href="../../tags/maven.html" class="" >maven</a></span> 
+                                        <a href="../../tags/github.html" class="" >github</a></span> 
                                 </span>
                             </span>
                         </div>
@@ -104,34 +104,32 @@
         <article>
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><p>To start, let's download <a href="https://jbake.org/download.html">JBake</a> and install JBake in a directory <code>C:\jbake-axkr</code>.<br />
-Now open a Windows <code>cmd.exe</code> and switch to that folder with the command:</p>
-<pre><code>C:\&gt;cd C:\jbake-axkr
+                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><h2>Github Codespaces (BETA)</h2>
+<p>Just tested Github Codespaces:</p>
+<ul>
+<li><a href="https://docs.github.com/en/codespaces">https://docs.github.com/en/codespaces</a></li>
+</ul>
+<p><img src="/blog/2022/images/GithubCodespacesLink.png" alt="Codespaces" width="800"/></p>
+<p>In the &quot;PORTS&quot; tab of the terminal, setup port 8080 for &quot;local forwarding&quot;</p>
+<p><img src="/blog/2022/images/GithubCodespacesPort.png" alt="Codespaces Port setting" width="800"/></p>
+<p>In the terminal move to the symja_android_library subfolder:</p>
+<pre><code>cd symja_android_library
 </code></pre>
-<p>You can generate a static site structure with the command</p>
-<pre><code>C:\jbake-axkr&gt;bin\jbake.bat -i
+<p>Run the Maven command to create all necessary JARs:</p>
+<pre><code>mvn clean install -DskipTests
 </code></pre>
-<p>Let's generate the static content with the following command in the folder <code>C:\jbake-axkr\output\</code>:</p>
-<pre><code>C:\jbake-axkr&gt;bin\jbake.bat -b
+<p>After that step run one of the Maven commands to start one of the Symja applications</p>
+<ul>
+<li><a href="https://github.com/axkr/symja_android_library/wiki/Installation">https://github.com/axkr/symja_android_library/wiki/Installation</a></li>
+</ul>
+<p>For example:</p>
+<pre><code>mvn -f pom.xml exec:java@mmaserver -pl matheclipse-io
 </code></pre>
-<p>Start the embedded server with the following command and open <a href="http://localhost:8820/">http://localhost:8820/</a> to control your changes.</p>
-<pre><code>C:\jbake-axkr&gt;bin\jbake.bat -s
+<p>Switch to the ports tab and press the web browser icon and append a</p>
+<pre><code>/indexmma.html
 </code></pre>
-<p>Create a new page for markdown editing with the <code>*.md</code> file extension, for example in the file</p>
-<pre><code>C:\jbake-axkr\jbake-axkr\content\blog\2022\JBakeOnWindows.md
-</code></pre>
-<p>and prepend the meta-data below as the first lines of the file.</p>
-<pre>
-title=Running JBake on Windows<br/>
-date=2022-04-27<br/>
-type=post<br/>
-tags=blog<br/>
-status=published<br/>
-~~~~~~<br/>
-</pre>
-<p>Edit the following lines with your blog content for example with the Eclipse Markdown editor and save the page.<br />
-Open <a href="http://localhost:8820/">http://localhost:8820/</a> again and preview your blog.<br />
-If the result is ready for publishing you can commit the content from the folder <code>C:\jbake-axkr\output\</code> for example as a <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages">Github page</a>.</p>
+<p>to the url to see the start page for the mma mopde. Click the &quot;gallery&quot; link or to explore the available functions press the question mark in the upper right corner:</p>
+<p><img src="/blog/2022/images/GithubCodespacesBrowser.png" alt="Symja MMA browser" /></p>
 </div>
                 </div>
             </div>
@@ -143,8 +141,8 @@ If the result is ready for publishing you can commit the content from the folder
                             <script>
                                 var disqus_shortname = "https-axkr-github-io";
                                 var disqus_config = function () {
-                                    this.page.url = "http:\/\/localhost:8820\/\/blog\/2022\/JBakeOnWindows.html";
-                                    this.page.identifier = "C:\\jbake-axkr\\content\\blog\\2022\\JBakeOnWindows.md";
+                                    this.page.url = "http:\/\/localhost:8820\/\/blog\/2022\/GithubCodespaces.html";
+                                    this.page.identifier = "C:\\jbake-axkr\\content\\blog\\2022\\GithubCodespaces.md";
                                 };
                                 (function () { // DON'T EDIT BELOW THIS LINE
                                     var d = document, s = d.createElement('script');

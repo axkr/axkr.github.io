@@ -3,7 +3,7 @@
 
     <head>
         <meta charset="utf-8">
-        <title>Running JBake on Windows</title>
+        <title>Using Wolfram Language packages with Symja</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Open source Java and Computer Algebra blog">
         <meta name="author" content="Axel Kramer">
@@ -12,14 +12,14 @@
         
         <!--Facebook Card-->
 		<meta property="og:type" content="article" />
-		<meta property="og:title"  content="Running JBake on Windows" />
+		<meta property="og:title"  content="Using Wolfram Language packages with Symja" />
 		<meta property="og:description" content="Open source Java and Computer Algebra blog"/>
 		<meta property="og:image" content="http://localhost:8820//img/yosemite.jpg" />
         
         <!--Twitter card -->
         
         <meta name="twitter:card" content="summary_large_image">
-		<meta name="twitter:title" content="Running JBake on Windows">
+		<meta name="twitter:title" content="Using Wolfram Language packages with Symja">
 		<meta name="twitter:creator" content="@axelclk">
 		<meta name="twitter:description" content="Open source Java and Computer Algebra blog">
 		<meta name="twitter:image" content="http://localhost:8820//img/yosemite.jpg">
@@ -83,15 +83,15 @@
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                         <div class="post-heading">
-                            <h1>Running JBake on Windows</h1>
+                            <h1>Using Wolfram Language packages with Symja</h1>
                             
                             <span class="meta">Posted by <b>Axel Kramer</b> on 
-                                April 27, 2022
+                                May 21, 2022
                                 </br>
                                 <span> Tags: 
                                     <span> 
                                         <a href="../../tags/blog.html" class="" >blog</a></span><span> 
-                                        <a href="../../tags/maven.html" class="" >maven</a></span> 
+                                        <a href="../../tags/symja.html" class="" >symja</a></span> 
                                 </span>
                             </span>
                         </div>
@@ -104,34 +104,30 @@
         <article>
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><p>To start, let's download <a href="https://jbake.org/download.html">JBake</a> and install JBake in a directory <code>C:\jbake-axkr</code>.<br />
-Now open a Windows <code>cmd.exe</code> and switch to that folder with the command:</p>
-<pre><code>C:\&gt;cd C:\jbake-axkr
+                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><h2>Using Wolfram Language packages with Symja.</h2>
+<p>If you're using the <a href="https://github.com/axkr/symja_android_library/wiki/MMA-console-usage">MMA Console</a> or local <a href="https://github.com/axkr/symja_android_library/wiki/MMA-browser-usage">MMA web browser notebook</a> installation, you can use some of the existing open source <a href="https://en.wikipedia.org/wiki/Wolfram_Language">Wolfram Language(Wikipedia)</a> packages.</p>
+<p>One simple example is the <a href="https://github.com/szhorvat/BoolEval">BoolEval.m</a> package, which you can load from the Github repository with this command:</p>
+<pre><code class="language-mma">&lt;&lt;&quot;https://raw.githubusercontent.com/szhorvat/BoolEval/master/BoolEval/BoolEval.m&quot;
 </code></pre>
-<p>You can generate a static site structure with the command</p>
-<pre><code>C:\jbake-axkr&gt;bin\jbake.bat -i
+<p>Here are some examples from the MMAConsole:</p>
+<pre><code class="language-mma">&gt;&gt; &lt;&lt;&quot;https://raw.githubusercontent.com/szhorvat/BoolEval/master/BoolEval/BoolEval.m&quot;
+In[1]:= &lt;&lt;&quot;https://raw.githubusercontent.com/szhorvat/BoolEval/master/BoolEval/BoolEval.m&quot;
+&gt;&gt; array=Range[10]
+In[2]:= array=Range[10]
+Out[2]= {1,2,3,4,5,6,7,8,9,10}
+&gt;&gt; BoolEval[array&gt;3]
+In[3]:= BoolEval[array&gt;3]
+Out[3]= {0,0,0,1,1,1,1,1,1,1}
+&gt;&gt; BoolPick[array,array&gt;3]
+In[4]:= BoolPick[array,array&gt;3]
+Out[4]= {4,5,6,7,8,9,10}
+&gt;&gt; BoolPick[array, Mod[array,3] == 1 &amp;&amp; array&lt;5]
+In[5]:= BoolPick[array, Mod[array,3] == 1 &amp;&amp; array&lt;5]
+Out[5]= {1,4}
+&gt;&gt; 
 </code></pre>
-<p>Let's generate the static content with the following command in the folder <code>C:\jbake-axkr\output\</code>:</p>
-<pre><code>C:\jbake-axkr&gt;bin\jbake.bat -b
-</code></pre>
-<p>Start the embedded server with the following command and open <a href="http://localhost:8820/">http://localhost:8820/</a> to control your changes.</p>
-<pre><code>C:\jbake-axkr&gt;bin\jbake.bat -s
-</code></pre>
-<p>Create a new page for markdown editing with the <code>*.md</code> file extension, for example in the file</p>
-<pre><code>C:\jbake-axkr\jbake-axkr\content\blog\2022\JBakeOnWindows.md
-</code></pre>
-<p>and prepend the meta-data below as the first lines of the file.</p>
-<pre>
-title=Running JBake on Windows<br/>
-date=2022-04-27<br/>
-type=post<br/>
-tags=blog<br/>
-status=published<br/>
-~~~~~~<br/>
-</pre>
-<p>Edit the following lines with your blog content for example with the Eclipse Markdown editor and save the page.<br />
-Open <a href="http://localhost:8820/">http://localhost:8820/</a> again and preview your blog.<br />
-If the result is ready for publishing you can commit the content from the folder <code>C:\jbake-axkr\output\</code> for example as a <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages">Github page</a>.</p>
+<p>And here is a screenshot from the local browser interface:</p>
+<p><img src="/blog/2022/images/UsingWolframLanghuagePackagesWithSymja001.png" alt="BoolEval example package" width="800"/></p>
 </div>
                 </div>
             </div>
@@ -143,8 +139,8 @@ If the result is ready for publishing you can commit the content from the folder
                             <script>
                                 var disqus_shortname = "https-axkr-github-io";
                                 var disqus_config = function () {
-                                    this.page.url = "http:\/\/localhost:8820\/\/blog\/2022\/JBakeOnWindows.html";
-                                    this.page.identifier = "C:\\jbake-axkr\\content\\blog\\2022\\JBakeOnWindows.md";
+                                    this.page.url = "http:\/\/localhost:8820\/\/blog\/2022\/UsingWolframLanghuagePackagesWithSymja.html";
+                                    this.page.identifier = "C:\\jbake-axkr\\content\\blog\\2022\\UsingWolframLanghuagePackagesWithSymja.md";
                                 };
                                 (function () { // DON'T EDIT BELOW THIS LINE
                                     var d = document, s = d.createElement('script');
