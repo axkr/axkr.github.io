@@ -2,34 +2,46 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Symja Blog</title>
-    <link>https://github.com/axkr/axkr.github.io</link>
-    <atom:link href="https://github.com/axkr/axkr.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:8820/</link>
+    <atom:link href="http://localhost:8820//feed.xml" rel="self" type="application/rss+xml" />
     <description>Open source Java and Computer Algebra blog</description>
     <language>en-gb</language>
-    <pubDate>Fri, 29 Apr 2022 14:38:29 +0200</pubDate>
-    <lastBuildDate>Fri, 29 Apr 2022 14:38:29 +0200</lastBuildDate>
+    <pubDate>Sun, 22 May 2022 13:20:14 +0200</pubDate>
+    <lastBuildDate>Sun, 22 May 2022 13:20:14 +0200</lastBuildDate>
 
     <item>
+      <title>Using Github Codespaces</title>
+      <link>http://localhost:8820//blog/2022/GithubCodespaces.html</link>
+      <pubDate>Sun, 22 May 2022 00:00:00 +0200</pubDate>
+      <guid isPermaLink="false">blog/2022/GithubCodespaces.html</guid>
+      <description><p>Just tested Github Codespaces:</p></description>	  
+    </item><item>
+      <title>Using Wolfram Language packages with Symja</title>
+      <link>http://localhost:8820//blog/2022/UsingWolframLanghuagePackagesWithSymja.html</link>
+      <pubDate>Sat, 21 May 2022 00:00:00 +0200</pubDate>
+      <guid isPermaLink="false">blog/2022/UsingWolframLanghuagePackagesWithSymja.html</guid>
+      <description><p>If you're using the <a href="https://github.com/axkr/symja_android_library/wiki/MMA-console-usage">MMA Console</a> or local <a href="https://github.com/axkr/symja_android_library/wiki/MMA-browser-usage">MMA web browser notebook</a> installation, you can use some of the existing open source <a href="https://en.wikipedia.org/wiki/Wolfram_Language">Wolfram Language(Wikipedia)</a> packages.</p></description>	  
+    </item><item>
       <title>java_codegen - a simple preprocessor tool for Java source code.</title>
-      <link>https://github.com/axkr/axkr.github.io/blog/2022/JavaCodegen.html</link>
+      <link>http://localhost:8820//blog/2022/JavaCodegen.html</link>
       <pubDate>Fri, 29 Apr 2022 00:00:00 +0200</pubDate>
       <guid isPermaLink="false">blog/2022/JavaCodegen.html</guid>
       <description><p>The <a href="https://github.com/axkr/java_codegen">axkr/java_codegen</a> Github project contains a simple preprocessor tool to expand ordinary strings into Java source code.</p></description>	  
     </item><item>
       <title>Appassembler Maven Plugin</title>
-      <link>https://github.com/axkr/axkr.github.io/blog/2022/AppassembleMavenPlugin.html</link>
+      <link>http://localhost:8820//blog/2022/AppassembleMavenPlugin.html</link>
       <pubDate>Wed, 27 Apr 2022 00:00:00 +0200</pubDate>
       <guid isPermaLink="false">blog/2022/AppassembleMavenPlugin.html</guid>
       <description><p>The <code>appassembler-maven-plugin</code> Maven plugin can be used to create the <a href="https://github.com/axkr/symja_android_library/wiki/Installation">Symja apps</a>.</p></description>	  
     </item><item>
       <title>Symbolic math scripting with JShell</title>
-      <link>https://github.com/axkr/axkr.github.io/blog/2022/JShellUsageWithSymja.html</link>
+      <link>http://localhost:8820//blog/2022/JShellUsageWithSymja.html</link>
       <pubDate>Wed, 27 Apr 2022 00:00:00 +0200</pubDate>
       <guid isPermaLink="false">blog/2022/JShellUsageWithSymja.html</guid>
       <description><p><a href="https://docs.oracle.com/en/java/javase/11/jshell/">JShell</a> is a Read-Evaluate-Print-Loop (REPL), a command line tool that allows you to enter Java statements (simple statements, compound statements, or even full methods and classes), evaluate them, and print the result. We'll go through an example that will show you how to use JShell to explore the <a href="https://github.com/axkr/symja_android_library">Symja computer algebra library</a>.</p></description>	  
     </item><item>
       <title>Running JBake on Windows</title>
-      <link>https://github.com/axkr/axkr.github.io/blog/2022/JBakeOnWindows.html</link>
+      <link>http://localhost:8820//blog/2022/JBakeOnWindows.html</link>
       <pubDate>Wed, 27 Apr 2022 00:00:00 +0200</pubDate>
       <guid isPermaLink="false">blog/2022/JBakeOnWindows.html</guid>
       <description><p>To start, let's download <a href="https://jbake.org/download.html">JBake</a> and install JBake in a directory <code>C:\jbake-axkr</code>.<br />

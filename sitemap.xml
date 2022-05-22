@@ -1,19 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     <url>
-        <loc>https://github.com/axkr/axkr.github.io/about.html</loc>
+        <loc>http://localhost:8820//about.html</loc>
         <lastmod>2022-04-27</lastmod>
     </url><url>
-        <loc>https://github.com/axkr/axkr.github.io/blog/2022/JavaCodegen.html</loc>
+        <loc>http://localhost:8820//blog/2022/GithubCodespaces.html</loc>
+        <lastmod>2022-05-22</lastmod>
+    </url><url>
+        <loc>http://localhost:8820//blog/2022/UsingWolframLanghuagePackagesWithSymja.html</loc>
+        <lastmod>2022-05-21</lastmod>
+    </url><url>
+        <loc>http://localhost:8820//blog/2022/JavaCodegen.html</loc>
         <lastmod>2022-04-29</lastmod>
     </url><url>
-        <loc>https://github.com/axkr/axkr.github.io/blog/2022/AppassembleMavenPlugin.html</loc>
+        <loc>http://localhost:8820//blog/2022/AppassembleMavenPlugin.html</loc>
         <lastmod>2022-04-27</lastmod>
     </url><url>
-        <loc>https://github.com/axkr/axkr.github.io/blog/2022/JShellUsageWithSymja.html</loc>
+        <loc>http://localhost:8820//blog/2022/JShellUsageWithSymja.html</loc>
         <lastmod>2022-04-27</lastmod>
     </url><url>
-        <loc>https://github.com/axkr/axkr.github.io/blog/2022/JBakeOnWindows.html</loc>
+        <loc>http://localhost:8820//blog/2022/JBakeOnWindows.html</loc>
         <lastmod>2022-04-27</lastmod>
     </url>
 </urlset>
